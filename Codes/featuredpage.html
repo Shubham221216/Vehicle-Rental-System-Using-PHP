@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Best Car Rental</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+<script>
+    function redirectTo(link) {
+      window.location.href = link;
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="file:///D:/Project/loginpage.html">Login</a></li>
+        <li><a href="#">Customer Support</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="pickup-section">
+    <div class="container">
+      <h1>Find the Perfect Car for Your Trip</h1>
+      <form>
+        <label for="pickup-location">Pickup Location</label>
+        <input type="text" id="pickup-location" placeholder="Enter pickup location">
+
+        <label for="dropoff-location">Drop-off Location</label>
+        <input type="text" id="dropoff-location" placeholder="Enter drop-off location">
+
+        <label for="pickup-date">Pickup Date</label>
+        <input type="date" id="pickup-date">
+
+        <label for="dropoff-date">Drop-off Date</label>
+        <input type="date" id="dropoff-date">
+
+        <input type="submit" value="Search">
+      </form>
+    </div>
+  </section>
+
+  
+  <section class="featured-vehicles">
+  <div class="container">
+    <h2>Featured Vehicles</h2>
+    <div class="vehicle-list">
+      <div class="vehicle" onclick="redirectTo('file:///D:/Project/Homepage.html')">
+        <div class="vehicle-image car"></div>
+        <h3>Car</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+      <div class="vehicle" onclick="redirectTo('suv.html')">
+        <div class="vehicle-image suv"></div>
+        <h3>SUV</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+      <div class="vehicle" onclick="redirectTo('traveller.html')">
+        <div class="vehicle-image traveller"></div>
+        <h3>Traveller</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+      <div class="vehicle" onclick="redirectTo('bikes.html')">
+        <div class="vehicle-image bikes"></div>
+        <h3>Bikes</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+      <div class="vehicle" onclick="redirectTo('scooty.html')">
+        <div class="vehicle-image scooty"></div>
+        <h3>Scooty</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <footer>
+    <p>&copy; 2023 Best Car Rental. All rights reserved.</p>
+  </footer>
+</body>
+</html>
