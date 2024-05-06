@@ -1,0 +1,181 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.pickup-section {
+  background-image: url('ertiga.jpg');
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  padding: 100px 0;
+}
+
+
+/* style.css */
+
+/* ...previous CSS styles... */
+
+.pickup-section h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.pickup-section form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.pickup-section label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.pickup-section input[type="text"],
+.pickup-section input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.pickup-section input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.featured-vehicles {
+  background-image: url('bgimg.jpg');
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.featured-vehicles h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.vehicle-list {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.vehicle {
+  width: 300px;
+  margin: 0 10px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+cursor: pointer;
+}
+
+/* style.css */
+
+
+/* ...previous CSS styles... */
+
+.vehicle-image.car {
+  background-image: url('swiftcopy.jpg');
+background-size: cover;
+  height: 200px;
+width: 225px;
+  margin-bottom: 10px;
+}
+
+.vehicle-image.suv {
+  background-image: url('suvimgcopy.jpeg');
+background-size: cover;
+  height: 200px;
+width: 225px;
+  margin-bottom: 10px;
+}
+
+.vehicle-image.traveller {
+  background-image: url('travellercopy.jpg');
+background-size: cover;
+  height: 200px;
+width: 225px;
+  margin-bottom: 10px;
+}
+
+.vehicle-image.bikes {
+  background-image: url('bikecopy.jpg');
+background-size: cover;
+  height: 200px;
+width: 270px;
+  margin-bottom: 10px;
+}
+
+.vehicle-image.scooty {
+  background-image: url('scooty.jpg');
+background-size: cover;
+  height: 200px;
+width: 225px;
+  margin-bottom: 10px;
+}
+
+
+.vehicle h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.vehicle p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.browse-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.browse-link:hover {
+  text-decoration: underline;
+}
+
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+
