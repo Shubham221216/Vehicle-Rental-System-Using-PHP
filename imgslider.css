@@ -1,0 +1,17 @@
+#listing_img_slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #listing_img_slider div {
+    margin: 10px;
+  }
+  
+  #listing_img_slider img {
+    border: 2px solid #ccc;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 50px;
+  }
+  
