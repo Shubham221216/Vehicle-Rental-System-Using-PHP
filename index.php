@@ -1,83 +1,94 @@
 <?php
 session_start();
-
-// Database configuration
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "shubham";
-
-// Create a database connection
-try {
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-    exit;
-}
-
-// Handle form submission
-if(isset($_POST['login'])) {
-  $email = $_POST['email'];
-  $password = $_POST['password']; 
-
-  // Find user in the database
-  $stmt = $pdo->prepare("SELECT EmailId,Password,FullName FROM tblusers WHERE EmailId=:email");
-  $stmt->execute(['email' => $email]);
-  $results = $stmt->fetchAll(PDO::FETCH_OBJ);
-    
-  // Verify the password
-  if(count($results) > 0 && password_verify($password, $results[0]->Password))
-  {
-    $_SESSION['login'] = $email;
-    $_SESSION['fname'] = $results[0]->FullName;
-    header('Location: newpage.php');
-    exit;
-  } 
-  else {
-    $error = "Invalid Details";
+require_once 'config.php';
+if(isset($_POST['login']))
+{
+$email=$_POST['username'];
+$password=md5($_POST['password']);
+$sql ="SELECT UserName,Password FROM admin WHERE UserName=:email and Password=:password";
+$query= $dbh -> prepare($sql);
+$query-> bindParam(':email', $email, PDO::PARAM_STR);
+$query-> bindParam(':password', $password, PDO::PARAM_STR);
+$query-> execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+if ($query->rowCount() > 0) {
+	$_SESSION['alogin'] = $_POST['username'];
+	header('Location: dashboard.php');
+	exit();
+  } else {
+	echo "<script>alert('Invalid Details');</script>";
   }
+  
+
 }
+
 ?>
+<!doctype html>
+<html lang="en" class="no-js">
 
-<!DOCTYPE html>
-<html>
 <head>
-  <title>Login - Best Car Rental</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Car Rental Portal | Admin Login</title>
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-social.css">
+	<link rel="stylesheet" href="css/bootstrap-select.css">
+	<link rel="stylesheet" href="css/fileinput.min.css">
+	<link rel="stylesheet" href="css/awesome-bootstrap-checkbox.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.php">Login</a></li>
-        <li><a href="signup.php">Sign Up</a></li>
-      </ul>
-    </nav>
-  </header>
+	
+	<div class="login-page bk-img" style="background-image: url(img/login-bg.jpg);">
+		<div class="form-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<h1 class="text-center text-bold mt-4x" style="color:#fff">Admin | Sign in</h1>
+						<div class="well row pt-2x pb-3x bk-light">
+							<div class="col-md-8 col-md-offset-2">
+								<form method="post">
 
-  <section class="login-section">
-    <div class="container">
-      <h1>Login</h1>
-      <?php if (isset($error)): ?>
-      <div class="alert alert-danger">
-        <?= $error ?>
-      </div>
-      <?php endif; ?>
-      <form method="POST">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" required>
+									<label for="" class="text-uppercase text-sm">Your Username </label>
+									<input type="text" placeholder="Username" name="username" class="form-control mb">
 
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required>
+									<label for="" class="text-uppercase text-sm">Password</label>
+									<input type="password" placeholder="Password" name="password" class="form-control mb">
+		
 
-        <input type="submit" name="login" value="Login">
-      </form>
-    </div>
-  </section>
+									<button class="btn btn-primary btn-block" name="login" type="submit">LOGIN</button>
 
-  <footer>
-    <p>&copy; 2023 Best Car Rental. All rights reserved.</p>
-  </footer>
+								</form>
+
+			<p style="margin-top: 4%" align="center"><a href="../index.php">Back to Home</a>	</p>
+							</div>
+
+						</div>
+							
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Loading Scripts -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap-select.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.dataTables.min.js"></script>
+	<script src="js/dataTables.bootstrap.min.js"></script>
+	<script src="js/Chart.min.js"></script>
+	<script src="js/fileinput.js"></script>
+	<script src="js/chartData.js"></script>
+	<script src="js/main.js"></script>
+
 </body>
+
 </html>
